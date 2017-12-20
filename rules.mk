@@ -392,7 +392,7 @@ define FontHtmlSnapshots_ =
 \
         $$$$(TTFAUTOHINT) $$$$(TTFAUTOHINT_FLAGS) \
           -w $$$$(strip $(5)) \
-          -F "-$$$$(strip $(5))" \
+          --family-suffix="-$$$$(strip $(5))" \
           -R "$$$$(word 2,$$$$+)" \
           $$$$< \
           $$$$@ \
@@ -480,7 +480,7 @@ define FontFamily_ =
       $$(call FontHtmlSnapshots, $(1), $$(s), $(3), $(4), $$(hm), $$(ff_hmodes), $$(firstword $$(ff_sty)))))
 
   $$(ff_fam): ; \
-    -mkdir $$@
+    -mkdir -p $$@
 endef
 
 
